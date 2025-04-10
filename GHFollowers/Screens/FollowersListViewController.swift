@@ -138,6 +138,17 @@ extension FollowersListViewController: UISearchResultsUpdating, UISearchBarDeleg
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        handleSearchEnd()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            handleSearchEnd()
+        }
+    }
+    
+    private func handleSearchEnd() {
+        isSearching = false
         updateData(on: followers)
     }
     
