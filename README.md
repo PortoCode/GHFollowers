@@ -3,6 +3,8 @@
 ## Overview
 This app allows users to search for GitHub followers by username, view detailed information about them, and save favorite searches for future use. It leverages the GitHub API to fetch follower data and user details, offering a simple and intuitive interface for interacting with the data.
 
+<div align="center"> <img src="https://github.com/user-attachments/assets/abb31bdd-3ff9-465e-89f1-ae6e1bab2d9c" width="30%" /> <img src="https://github.com/user-attachments/assets/88797995-ff5e-4691-b3fa-d466d4a2ed47" width="30%" /> <br><br> <img src="https://github.com/user-attachments/assets/5a9ee661-a2f5-483d-8bc9-a1e9760ae16f" width="30%" /> <img src="https://github.com/user-attachments/assets/100b6a5f-c9ee-40cb-a0a2-9fb19bf0f61b" width="30%" /> </div>
+
 ## Features
 - **Search followers**: Enter a GitHub username to fetch a list of their followers.
 - **Follower details**: Tap on a follower to view detailed information about them.
