@@ -90,7 +90,7 @@ class NetworkManager {
         task.resume()
     }
     
-    func downloadImage(from urlString: String, completion: @escaping (UIImage) -> ()) {
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         let cacheKey = urlString
         
         if let image = cache.object(forKey: cacheKey as NSString) {
@@ -98,21 +98,24 @@ class NetworkManager {
             return
         }
         
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let self = self else { return }
+            guard let self = self,
+                  error == nil,
+                  let response = response as? HTTPURLResponse, response.statusCode == 200,
+                  let data = data,
+                  let image = UIImage(data: data) else {
+                completion(nil)
+                return
+            }
             
-            if error != nil { return }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-            guard let data = data else { return }
-            
-            guard let image = UIImage(data: data) else { return }
             cache.setObject(image, forKey: cacheKey as NSString)
             
-            DispatchQueue.main.async {
-                completion(image)
-            }
+            completion(image)
         }
         
         task.resume()
