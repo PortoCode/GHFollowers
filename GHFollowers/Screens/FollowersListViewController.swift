@@ -205,11 +205,11 @@ extension FollowersListViewController: FollowersListViewControllerDelegate {
         self.username = username
         title = username
         page = 1
+        hasMoreFollowers = true
+        isSearching = false
         followers.removeAll()
         filteredFollowers.removeAll()
         updateData(on: followers)
-        hasMoreFollowers = true
-        isSearching = false
         getFollowers(username: username, page: page)
     }
     
