@@ -108,7 +108,7 @@ class UserInfoViewController: UIViewController {
     
 }
 
-extension UserInfoViewController: ItemInfoViewControllerDelegate {
+extension UserInfoViewController: GFRepoItemViewControllerDelegate {
     
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
@@ -118,6 +118,10 @@ extension UserInfoViewController: ItemInfoViewControllerDelegate {
         
         presentSafariViewController(with: url)
     }
+    
+}
+
+extension UserInfoViewController: GFFollowerItemViewControllerDelegate {
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
