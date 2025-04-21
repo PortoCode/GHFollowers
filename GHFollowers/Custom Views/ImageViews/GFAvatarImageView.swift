@@ -10,6 +10,7 @@ import UIKit
 class GFAvatarImageView: UIImageView {
     
     let placeholderImage = Images.placeholder
+    var currentUrlString: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,10 +29,12 @@ class GFAvatarImageView: UIImageView {
     }
     
     func setImage(from urlString: String) {
-        NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.image = image
+        currentUrlString = urlString
+        Task {
+            let downloadedImage = await NetworkManager.shared.downloadImage(from: urlString)
+            
+            if currentUrlString == urlString {
+                image = downloadedImage ?? placeholderImage
             }
         }
     }
