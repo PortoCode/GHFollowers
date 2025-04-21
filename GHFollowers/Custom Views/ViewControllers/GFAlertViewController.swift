@@ -13,11 +13,12 @@ class GFAlertViewController: UIViewController {
     let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GFBodyLabel(textAlignment: .center)
     let actionButton = GFButton(backgroundColor: .systemPink, title: "Ok")
-    let padding: CGFloat = 20
     
     var alertTitle: String?
     var message: String?
     var buttonTitle: String?
+    
+    let padding: CGFloat = 20
     
     init(title: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
