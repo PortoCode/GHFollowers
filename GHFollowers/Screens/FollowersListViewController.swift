@@ -223,6 +223,7 @@ extension FollowersListViewController: UserInfoViewControllerDelegate {
         
         followers.removeAll()
         filteredFollowers.removeAll()
+        navigationItem.searchController?.searchBar.text = ""
         updateData(on: followers)
         getFollowers(username: username, page: page)
     }
