@@ -48,11 +48,6 @@ class FollowersListViewController: GFDataLoadingViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationItem.hidesSearchBarWhenScrolling = true
-    }
-    
     override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
         if followers.isEmpty && !isLoadingMoreFollowers {
             var config = UIContentUnavailableConfiguration.empty()
@@ -90,6 +85,7 @@ class FollowersListViewController: GFDataLoadingViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for a username"
         searchController.obscuresBackgroundDuringPresentation = false
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
