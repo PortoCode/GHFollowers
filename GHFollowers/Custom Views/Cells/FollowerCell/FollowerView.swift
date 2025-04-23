@@ -22,7 +22,8 @@ struct FollowerView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
-            .clipShape(Circle())
+            .clipShape(Rectangle())
+            .cornerRadius(12)
             
             Text(follower.login)
                 .bold()
