@@ -72,7 +72,9 @@ class FollowersListViewController: GFDataLoadingViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        navigationItem.rightBarButtonItem = addButton
+        let getUserInfoButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(getUserInfoButtonTapped))
+        
+        navigationItem.rightBarButtonItems = [addButton, getUserInfoButton]
     }
     
     func configureCollectionView() {
@@ -152,6 +154,15 @@ class FollowersListViewController: GFDataLoadingViewController {
         }
     }
     
+    @objc func getUserInfoButtonTapped() {
+        let destinationViewController = UserInfoViewController()
+        destinationViewController.username = username
+        destinationViewController.delegate = self
+        
+        let navigationController = UINavigationController(rootViewController: destinationViewController)
+        present(navigationController, animated: true)
+    }
+    
     func addUserToFavorites(user: User) {
         let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
         
@@ -194,6 +205,7 @@ extension FollowersListViewController: UICollectionViewDelegate {
         let destinationViewController = UserInfoViewController()
         destinationViewController.username = follower.login
         destinationViewController.delegate = self
+        
         let navigationController = UINavigationController(rootViewController: destinationViewController)
         present(navigationController, animated: true)
     }
