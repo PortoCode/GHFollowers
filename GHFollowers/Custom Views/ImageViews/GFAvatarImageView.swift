@@ -31,7 +31,7 @@ class GFAvatarImageView: UIImageView {
     func setImage(from urlString: String) {
         currentUrlString = urlString
         Task {
-            let downloadedImage = await NetworkManager.shared.downloadImage(from: urlString)
+            let downloadedImage = await ImageCacheManager.shared.downloadImage(from: urlString)
             
             if currentUrlString == urlString {
                 image = downloadedImage ?? placeholderImage
