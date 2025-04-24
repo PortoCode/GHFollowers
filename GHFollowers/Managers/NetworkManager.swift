@@ -11,7 +11,6 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     private let baseURL = "https://api.github.com/users/"
-    private let cache = NSCache<NSString, UIImage>()
     private let decoder = JSONDecoder()
     
     private init() {
@@ -58,22 +57,4 @@ class NetworkManager {
             throw GFError.invalidData
         }
     }
-    
-    func downloadImage(from urlString: String) async -> UIImage? {
-        let cacheKey = urlString
-        
-        if let image = cache.object(forKey: cacheKey as NSString) { return image }
-        
-        guard let url = URL(string: urlString) else { return nil }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            guard let image = UIImage(data: data) else { return nil }
-            cache.setObject(image, forKey: cacheKey as NSString)
-            return image
-        } catch {
-            return nil
-        }
-    }
-    
 }
