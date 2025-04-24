@@ -3,7 +3,13 @@
 ## Overview
 This app allows users to search for GitHub followers by username, view detailed information about them, and save favorite searches for future use. It leverages the GitHub API to fetch follower data and user details, offering a simple and intuitive interface for interacting with the data.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/abb31bdd-3ff9-465e-89f1-ae6e1bab2d9c" width="30%" /> <img src="https://github.com/user-attachments/assets/88797995-ff5e-4691-b3fa-d466d4a2ed47" width="30%" /> <br><br> <img src="https://github.com/user-attachments/assets/5a9ee661-a2f5-483d-8bc9-a1e9760ae16f" width="30%" /> <img src="https://github.com/user-attachments/assets/100b6a5f-c9ee-40cb-a0a2-9fb19bf0f61b" width="30%" /> </div>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/b95706fb-9814-44a8-9796-88bd3e94196c" width="20%" /> <img src="https://github.com/user-attachments/assets/d945f67f-c740-4b9b-b3d1-3a3da8c41548" width="20%" /> 
+<img src="https://github.com/user-attachments/assets/8ac00203-3b3d-428d-8059-647af9182432" width="20%" /> <img src="https://github.com/user-attachments/assets/ebb8c587-37da-4ea7-a824-a021af089940" width="20%" /> 
+<br><br>
+<img src="https://github.com/user-attachments/assets/b50f727d-1784-4847-abe9-b7a77d41c15f" width="20%" /> <img src="https://github.com/user-attachments/assets/ef9d26cf-b477-4ae0-9c84-9ce47fa2ddf4" width="20%" /> 
+<img src="https://github.com/user-attachments/assets/91fc42d5-0304-4f2d-8728-9f13a5c8c685" width="20%" /> <img src="https://github.com/user-attachments/assets/3b2efe69-81e9-40c4-a713-1982c6751019" width="20%" /> 
+</div>
 
 ## Features
 - **Search followers**: Enter a GitHub username to fetch a list of their followers.
